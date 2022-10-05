@@ -43,8 +43,6 @@
 
     createPlatform(210, 450, 0.26, 0.10 );
 
-    createPlatform( )
-
 
 
     /*
