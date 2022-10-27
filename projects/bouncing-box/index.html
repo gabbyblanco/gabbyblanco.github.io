@@ -14,7 +14,7 @@
 			display: block;
 			position: absolute;
 			top: 100px;
-			left: 700px;  /* <--- Change me! */
+			left: 0px;  /* <--- Change me! */
 		}
 		.board{
 			height: 100vh;
@@ -49,7 +49,7 @@
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX) {
 				box.css("left", newPositionX);
-				box.css("top", newPositionX);
+				box.css("top", newPositionY);
 
 			}		 
 
@@ -65,7 +65,9 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+			var positionX = 0;
+			var speed = 10;
+			var points = 0;
 			
 		
 			
@@ -76,8 +78,14 @@
 			turn it around! 
 			*/
 			function update() {
+				positionX = positionX + speed;
 				 moveBoxTo(positionX);
-					if(positionX > boardWidth)
+					if(positionX >= boardWidth){
+						speed = (speed * -1);
+					}
+					if (positionX <= 0){
+						speed = (speed * -1);
+					}
 
 			};
 
