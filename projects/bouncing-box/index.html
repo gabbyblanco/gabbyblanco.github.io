@@ -68,7 +68,9 @@
 			var positionX = 0;
 			var speed = 10;
 			var points = 0;
-			
+			var positionY = 70;
+			var speed = 8;
+			var randNum = Math.random()*100;
 			
 		
 			
@@ -88,6 +90,13 @@
 						speed = speed *-1;
 					}
 
+					if(positionY >= boardHeight) {
+						speedY = speedY * -1;
+					}
+					if (positionY < 0) {
+
+					}
+
 			};
 
 			/* 
@@ -96,8 +105,13 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+
 				positionX = 0;
+
+				positionY + 0;
+
 				points += 1;
+
 				changeBoxTex(points);
 
 
