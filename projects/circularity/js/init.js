@@ -39,7 +39,7 @@ var init = function (window) {
         // drawCircle();
         // drawCircle();
         // drawCircle();
-for (var loopsCompleted = 0; loopsCompleted , 10; loopsCompleted++){
+for (var loopsCompleted = 0; loopsCompleted < 100; loopsCompleted++){
     drawCircle();
 }
       
@@ -55,24 +55,27 @@ for (var loopsCompleted = 0; loopsCompleted , 10; loopsCompleted++){
         */
         function update() {
             // TODO 4 : Update the circle's position //
-
-    physikz.updatePosition(circles[0]);
- 	physikz.updatePosition(circles[1]);
- 	physikz.updatePosition(circles[2]);
- 	physikz.updatePosition(circles[3]);
- 	physikz.updatePosition(circles[4]);
+  for (var i = 0; i < circles.lenght; i++){
+    var eachCircle = circles[i];
+                
+    physikz.updatePosition(eachCircle);
+ 	// physikz.updatePosition(circles[1]);
+ 	// physikz.updatePosition(circles[2]);
+ 	// physikz.updatePosition(circles[3]);
+ 	// physikz.updatePosition(circles[4]);
  
 
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
            
-            game.checkCirclePosition(circles[0]);
-            game.checkCirclePosition(circles[1]);
-            game.checkCirclePosition(circles[2]);
-            game.checkCirclePosition(circles[3]);
-            game.checkCirclePosition(circles[4]);
+            game.checkCirclePosition(eachCircle);
+            // game.checkCirclePosition(circles[1]);
+            // game.checkCirclePosition(circles[2]);
+            // game.checkCirclePosition(circles[3]);
+            // game.checkCirclePosition(circles[4]);
 
-            
+          
+            }
             // TODO 9 : Iterate over the array
            
             
@@ -86,8 +89,8 @@ for (var loopsCompleted = 0; loopsCompleted , 10; loopsCompleted++){
         game.checkCirclePosition = function(circle) {
 
             var rightEdge = circle.x + circle.radius;
-            var leftEdge = circle.x + circle.radius;
-            var topEdge = circle.y + circle.radius;
+            var leftEdge = circle.x - circle.radius;
+            var topEdge = circle.y - circle.radius;
             var bottomEdge = circle.y + circle.radius;
 
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
@@ -95,7 +98,7 @@ for (var loopsCompleted = 0; loopsCompleted , 10; loopsCompleted++){
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             
             if (rightEdge < 0){
-                circle.x = canvas. width +circle.radius;
+                circle.x = canvas.width + circle.radius;
             }
             if (leftEdge > canvas.width){
                 circle.x = -circle.radius;
@@ -104,7 +107,7 @@ for (var loopsCompleted = 0; loopsCompleted , 10; loopsCompleted++){
                 circle.y = -circle.radius;
             }
             if (bottomEdge < 0 ){
-                circle.y = canvas.width +circle.radius;
+                circle.y = canvas.height + circle.radius;
             }
 
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
