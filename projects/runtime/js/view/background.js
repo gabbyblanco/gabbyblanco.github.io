@@ -26,6 +26,10 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
+
+        
+        var tree;
+        var buildings = [];
         
      
         // called at the start of game and whenever the page is resized
@@ -67,7 +71,7 @@ var background = function (window) {
             
             // TODO 4: Part 1 - Add a tree
             
-            tree = draw.bitmap("img/tree.png");
+            tree = draw.bitmap("img/alien.png");
         tree.x = 0;
         tree.y = 0;
         background.addChild(tree);
@@ -87,7 +91,7 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x - 1;
+            tree.x = tree.x + 6;
 
         if (tree.x < -200) {
         tree.x = canvasWidth;
@@ -98,7 +102,7 @@ var background = function (window) {
             for (var i = 0; i < buildings.length; i++) {
                 var eachElement = buildings[i];
                 eachElement.x = eachElement.x - 1.5;
-                if ( eachElement.x <- -200){
+                if ( eachElement.x <= -200){
                     eachElement.x = canvasWidth;
                 }
               
@@ -107,8 +111,6 @@ var background = function (window) {
 
         } // end of update function - DO NOT DELETE
         
-        var tree;
-        var buildings = [];
         
         /* Make a createjs Container for the background and let it know about the render and upate functions*/
         background = new createjs.Container();
